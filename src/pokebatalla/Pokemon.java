@@ -11,6 +11,8 @@ import java.util.List;
  * @author FJML1983
  */
 public class Pokemon {
+
+    //Atributos
     int nivel;
     int hp;
     int ataque;
@@ -19,15 +21,19 @@ public class Pokemon {
     String tipo;
     List<String> habilidades;
 
-    public Pokemon(int nivel, int hp, int ataque, int defensa, double precision, String tipo, List<String> habilidades) {
-        this.nivel = nivel;
-        this.hp = hp;
-        this.ataque = ataque;
-        this.defensa = defensa;
-        this.precision = precision;
-        this.tipo = tipo;
-        this.habilidades = habilidades;
+    Pokemon() {
     }
-    
-    
+
+    //Métodos
+    void atacar(Pokemon enemigo) {
+        System.out.println("Pokemon Atacando a un: " + enemigo.getClass().getName());
+        //TODO: Aqui va la logica para causar daño al enemigo.
+
+    }
+
+    @Override
+    public String toString() {
+        return this.getClass().getName() + "{tipo:" + tipo + " hp:" + hp + "}";
+    }
+
 }
