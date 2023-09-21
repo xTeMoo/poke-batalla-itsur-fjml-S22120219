@@ -18,4 +18,16 @@ public class Pokemon {
     double precision;
     String tipo;
     List<String> habilidades;
+
+    public Pokemon(int nivel, int hp, int ataque, int defensa, double precision, String tipo, List<String> habilidades) {
+        this.nivel = nivel;
+        this.hp = hp;
+        this.ataque = ataque;
+        this.defensa = defensa;
+        this.precision = precision;
+        this.tipo = tipo;
+        this.habilidades = habilidades;
+    }
+    
+    
 }
