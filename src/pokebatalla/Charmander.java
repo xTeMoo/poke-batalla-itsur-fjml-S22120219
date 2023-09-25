@@ -18,4 +18,10 @@ public class Charmander extends Pokemon {
         precision = 4;
     }
     
+    //Constructor alterno 1
+    public Charmander(String nombre){
+        this(); //invocando al constructor default
+        this.nombre = nombre;
+    }
+    
 }

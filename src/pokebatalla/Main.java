@@ -17,11 +17,13 @@ public class Main {
         // TODO code application logic here
         System.out.println("Hello PokeBatalla!");
         
-        Pikachu p1 = new Pikachu(); //Instanciando       
-        Pikachu p2 = new Pikachu(); //Instanciando               
+        Pikachu p1 = new Pikachu(); //Instanciando un pikachu sin nombre.      
+        Pikachu p2 = new Pikachu("Panchu"); //Instanciando un pikachu con nombre              
         Charmander cha1 = new Charmander();   //Instanciando                     
-        Bullbasaur b1 = new Bullbasaur();//Instanciando
+        Bullbasaur b1 = new Bullbasaur();//Instanciando        
         
+        p1.setNombre("PikaPika");
+        p2.setNombre("Poncho");
         
         p1.atacar(cha1);
         p1.atacar(b1);

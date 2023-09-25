@@ -19,4 +19,10 @@ public class Bullbasaur extends Pokemon {
         precision = 4;
     }
 
+    //Constructor alterno 1
+    public Bullbasaur(String nombre){
+        this(); //invocando al constructor default
+        this.nombre = nombre;
+    }
+    
 }

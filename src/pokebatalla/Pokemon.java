@@ -13,17 +13,24 @@ import java.util.List;
 public class Pokemon {
 
     //Atributos
+    protected String tipo;
+    protected String nombre;
     int nivel;
     int hp;
     int ataque;
     int defensa;
-    double precision;
-    String tipo;
+    double precision;    
     List<String> habilidades;
 
     Pokemon() {
     }
 
+    //Setters
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    
     //Métodos
     void atacar(Pokemon enemigo) {
         System.out.println("Pokemon Atacando a un: " + enemigo.getClass().getName());

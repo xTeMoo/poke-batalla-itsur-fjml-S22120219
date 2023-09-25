@@ -12,12 +12,24 @@ public class Pikachu  extends Pokemon{
 
     //Constructor default
     public Pikachu() {
-        tipo = "ELECTRICO";
-        hp = 35;
-        ataque = 55;
-        defensa = 30;
-        nivel = 1;
-        precision = 4;
+        this.tipo = "ELECTRICO";
+        this.hp = 35;
+        this.ataque = 55;
+        this.defensa = 30;
+        this.nivel = 1;
+        this.precision = 4;
     }    
+    
+    //Constructor alterno 1
+    public Pikachu(String nombre){
+        this(); //invocando al constructor default
+        this.nombre = nombre;
+    }
+    
+//    //Constructor alterno 2
+//    public Pikachu(String nombre, int hp){
+//        this(nombre); //Invocando al constructor alterno 1
+//        this.hp = hp;
+//    }
     
 }
