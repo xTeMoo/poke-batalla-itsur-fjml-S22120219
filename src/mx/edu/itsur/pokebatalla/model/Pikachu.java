@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package pokebatalla;
+package mx.edu.itsur.pokebatalla.model;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -18,6 +20,10 @@ public class Pikachu  extends Pokemon{
         this.defensa = 30;
         this.nivel = 1;
         this.precision = 4;
+        this.habilidades = new ArrayList<>();
+        this.habilidades.add("ATACKTRUENO");
+        this.habilidades.add("BOLAVOLTIO");
+        //....
     }    
     
     //Constructor alterno 1
@@ -26,10 +32,15 @@ public class Pikachu  extends Pokemon{
         this.nombre = nombre;
     }
     
-//    //Constructor alterno 2
-//    public Pikachu(String nombre, int hp){
-//        this(nombre); //Invocando al constructor alterno 1
-//        this.hp = hp;
-//    }
-    
+    public void atacar(Pokemon oponente, String habilidad){
+        if(habilidad.equals("ATACKTRUENO")){
+            //Logica del daño por atacktrueno
+            System.out.println("Realizando ATACKTRUENO");
+        }else if(habilidad.equals("BOLAVOLTIO")){
+            //Logica del daño por BOLAVOLTIO
+            System.out.println("Realizando BOLAVOLTIO");            
+        }
+        //TODO: otras habilidades...
+    }
+   
 }
