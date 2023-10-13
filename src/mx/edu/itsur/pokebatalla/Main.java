@@ -4,9 +4,9 @@
  */
 package mx.edu.itsur.pokebatalla;
 
-import mx.edu.itsur.pokebatalla.model.Bullbasaur;
-import mx.edu.itsur.pokebatalla.model.Pikachu;
-import mx.edu.itsur.pokebatalla.model.Charmander;
+import mx.edu.itsur.pokebatalla.model.pokemons.Bullbasaur;
+import mx.edu.itsur.pokebatalla.model.pokemons.Pikachu;
+import mx.edu.itsur.pokebatalla.model.pokemons.Charmander;
 
 /**
  *
