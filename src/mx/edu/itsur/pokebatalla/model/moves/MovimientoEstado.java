@@ -5,10 +5,10 @@
 package mx.edu.itsur.pokebatalla.model.moves;
 
 /**
- * Es una clase de movimiento de características especiales
+ * Es una clase de movimiento que afecta al estado del oponente
  * 
  * @author FJML1983
  */
-public class MovimientoEspecial extends Movimiento{
+public class MovimientoEstado extends Movimiento {
     
 }
