@@ -5,6 +5,7 @@
 package mx.edu.itsur.pokebatalla.model.pokemons;
 
 import java.util.List;
+import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
 
 /**
  *
@@ -20,7 +21,7 @@ public class Pokemon {
     protected int ataque;
     protected int defensa;
     protected double precision;
-    protected List<String> habilidades;
+    protected List<Movimiento> movimientos;
 
     Pokemon() {
     }

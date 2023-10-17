@@ -4,6 +4,8 @@
  */
 package mx.edu.itsur.pokebatalla.model.pokemons;
 
+import mx.edu.itsur.pokebatalla.model.moves.Latigo;
+
 /**
  *
  * @author FJML1983
@@ -17,12 +19,14 @@ public class Bullbasaur extends Pokemon {
         defensa = 49;
         nivel = 1;
         precision = 4;
+        this.movimientos.add(new Latigo());
     }
 
     //Constructor alterno 1
     public Bullbasaur(String nombre){
         this(); //invocando al constructor default
         this.nombre = nombre;
+        
     }
     
     
