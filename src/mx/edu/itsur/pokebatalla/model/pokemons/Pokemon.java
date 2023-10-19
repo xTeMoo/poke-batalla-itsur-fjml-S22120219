@@ -26,12 +26,27 @@ public class Pokemon {
     Pokemon() {
     }
 
+    //Getters
+    public int getNivel() {
+        return nivel;
+    }
+    public int getAtaque() {
+        return ataque;
+    }    
+    public int getDefensa(){
+        return defensa;
+    }
+    
     //Setters
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    //Métodos
+    //Métodos 
+    public void recibirDanio(int danio){
+        this.hp = this.hp - danio;
+    }        
+    
     public void atacar(Pokemon oponente) {
         
         System.out.println("Mi pokemon:" + this.nombre);

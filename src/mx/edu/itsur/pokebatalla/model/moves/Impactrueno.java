@@ -23,23 +23,24 @@ public class Impactrueno extends MovimientoEspecial {
     //Métodos
     @Override
     public void utilizar(Pokemon usuario, Pokemon objetivo) {
-        //POR HACER..
-        int nivelUsuario;  //N
-        int ataqueUsuario;  //A
-        int potenciaMovimiento; //P 
-        int defensaObjetivo; //D
+        //Calcular el daño
+        int nivelAtacante = usuario.getNivel();
+        int ataqueAtacante = usuario.getAtaque();
+        int poderMovimiento = this.puntosPoder; //this.getPoder();
+        int defensaObjetivo = objetivo.getDefensa();
         
-        /*
-        B = Bonificación. Si el Pokémon no está teracristalizado: si el ataque es del mismo tipo que el Pokémon que lo lanza toma un valor de 1.5; si el ataque es de un tipo diferente al del Pokémon que lo lanza toma un valor de 1. Si el Pokémon está teracristalizado: si tanto su tipo original como su teratipo coinciden con el del movimiento, la bonificación será de 2; si sólo coincide su tipo original o su teratipo, será de 1.5; si no coincide ninguno, será de 1.
-            Este contenido proviene de wikidex.net, y debe darse atribución a sus autores, tal como especifica la licencia.
-            Se prohíbe su uso a PlagioDex (el wiki de FANDOOM), por copiar reiteradamente sin dar atribución
-        */
+        //Calcular el modificador, considerando tipos.
+        double modificador = 1.0; // Modificador base (sin modificaciones)       
+        //if ()... POR HACER
         
-        int bonificacion; //B
-        int efectividadMovimiento; //E
+        int danio = (int) (((
+                ((2 * nivelAtacante / 5 + 2) 
+                        * ataqueAtacante 
+                        * poderMovimiento / defensaObjetivo) 
+                  / 50) + 2) * modificador);
         
-                
-        
+        objetivo.recibirDanio(danio);
+                      
     }
     
     

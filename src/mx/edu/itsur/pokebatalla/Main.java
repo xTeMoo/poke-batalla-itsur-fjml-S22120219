@@ -28,9 +28,6 @@ public class Main {
         pikachuSalvaje.setNombre("Pedro");        
         Pikachu miPikachu = pikachuSalvaje;
         
-        miPikachu.atacar(charmanderSalvaje);
-        
-        miPikachu.atacar(charmanderSalvaje, "ATACKTRUENO");
         
     }
     

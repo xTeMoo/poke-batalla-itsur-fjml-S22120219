@@ -8,12 +8,24 @@ import java.util.ArrayList;
 import mx.edu.itsur.pokebatalla.model.moves.AtaqueRapido;
 import mx.edu.itsur.pokebatalla.model.moves.Impactrueno;
 import mx.edu.itsur.pokebatalla.model.moves.Latigo;
+import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
 
 /**
  *
  * @author FJML1983
  */
-public class Pikachu  extends Pokemon{
+public class Pikachu extends Pokemon {
+
+    /**
+     * Movimientos que puede realizar el Pokémon
+     */
+    public enum Movimientos {
+        IMPACTRUENO,
+        ATAQUE_RAPIDO,
+        LATIGO
+
+        //Otros movimientos...
+    }
 
     //Constructor default
     public Pikachu() {
@@ -23,30 +35,35 @@ public class Pikachu  extends Pokemon{
         this.defensa = 30;
         this.nivel = 1;
         this.precision = 4;
-        this.movimientos = new ArrayList<>();
-        this.movimientos.add(new Impactrueno());
-        this.movimientos.add(new AtaqueRapido());
-        this.movimientos.add(new Latigo());
-//this.habilidades.add("BOLAVOLTIO");
-        //....
-    }    
-    
+    }
+
     //Constructor alterno 1
-    public Pikachu(String nombre){
+    public Pikachu(String nombre) {
         this(); //invocando al constructor default
         this.nombre = nombre;
     }
-    
-    public void atacar(Pokemon oponente, String movimiento){
-        if(movimiento.equals("IMPACTRUENO")){
-            //Logica del daño por atacktrueno
-            
-            //System.out.println("Realizando ATACKTRUENO");
-        }else if(movimiento.equals("ATAQUE_RAPIDO")){
-            //Logica del daño por ATAQUE_RAPIDO
-            System.out.println("Realizando BOLAVOLTIO");            
+
+    public void atacar(Pokemon oponente, Pikachu.Movimientos movimientoAUtilizar) {
+
+        Movimiento instanciaMovimiento;
+        
+        switch (movimientoAUtilizar) {
+            case IMPACTRUENO:
+                instanciaMovimiento = new Impactrueno();
+                break;
+            case ATAQUE_RAPIDO:
+                instanciaMovimiento = new AtaqueRapido();
+                break;
+            case LATIGO:
+                instanciaMovimiento = new Latigo();
+                break;
+
+            //Otros movimientos aquí...                
+            default:
+                throw new AssertionError();
         }
-        //TODO: otras habilidades...
+
+        instanciaMovimiento.utilizar(this, oponente);
     }
-   
+
 }
