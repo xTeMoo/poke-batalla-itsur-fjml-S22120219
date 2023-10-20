@@ -21,7 +21,6 @@ public class Pokemon {
     protected int ataque;
     protected int defensa;
     protected double precision;
-    protected List<Movimiento> movimientos;
 
     Pokemon() {
     }
@@ -47,33 +46,11 @@ public class Pokemon {
         this.hp = this.hp - danio;
     }        
     
-    public void atacar(Pokemon oponente) {
-        
-        System.out.println("Mi pokemon:" + this.nombre);
-        System.out.println("esta atacando a: " + oponente);
-        
-        if (this.ataque > oponente.defensa) {
-            //Calcular el daño
-            int damage = this.ataque - oponente.defensa;
-            //Restar el daño del HP del oponente
-            oponente.hp = oponente.hp - damage;
-            System.out.println("Y le causo un daño de: " + damage);
-        }else{
-           //TODO: ...Y si no que pasa?
-        }
-        System.out.println("El pokemon oponente quedo asi:" + oponente);
-
-        
-        
-        //System.out.println("Pokemon Atacando a un: " + enemigo.getClass().getName());
-        //TODO: Aqui va la logica para causar daño al enemigo.
-
-    }
 
     @Override
     public String toString() {
 
-        return this.getClass().getName() + 
+        return this.getClass().getSimpleName() + 
                 "{tipo:" + tipo + " hp:" + hp + "}";
     }
 

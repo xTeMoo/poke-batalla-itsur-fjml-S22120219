@@ -63,6 +63,15 @@ public class Movimiento {
                         * poderMovimiento / defensaObjetivo) 
                   / 50) + 2) * modificador);
         
-        objetivo.recibirDanio(danio);               
+        objetivo.recibirDanio(danio); 
+
+        //Imprimir efecto del movimiento en consola
+        System.out.println(
+                         usuario.getClass().getSimpleName() + " aplica " + 
+                         this.getClass().getSimpleName() + " a " +  
+                         objetivo.getClass().getSimpleName() + " y causa danio de " +
+                         danio);
+        System.out.println("El objetivo quedo asi: " + objetivo);
+        
     }    
 }
