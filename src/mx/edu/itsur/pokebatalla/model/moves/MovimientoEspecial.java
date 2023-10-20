@@ -4,8 +4,6 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
-import mx.edu.itsur.pokebatalla.model.pokemons.Pokemon;
-
 /**
  * Es una clase de movimiento de características especiales
  * 
