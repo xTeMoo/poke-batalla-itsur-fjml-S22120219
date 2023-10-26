@@ -43,6 +43,12 @@ public class Pikachu extends Pokemon {
         this.nombre = nombre;
     }
 
+    
+    @Override
+    protected void atacar(Pokemon oponente, Movimiento move) {
+        move.utilizar(this, oponente);
+    }
+    
     public void atacar(Pokemon oponente, Pikachu.Movimientos movimientoAUtilizar) {
 
         //Instanciar el movimiento solicitado
@@ -64,7 +70,7 @@ public class Pikachu extends Pokemon {
         }
 
         //Aplicar el movimiento.
-        instanciaMovimiento.utilizar(this, oponente);
+        atacar(oponente, instanciaMovimiento);
     }
 
 }

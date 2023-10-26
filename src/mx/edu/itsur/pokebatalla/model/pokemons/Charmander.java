@@ -23,7 +23,7 @@ public class Charmander extends Pokemon {
 
         //Otros movimientos...
     }
-
+    
     public Charmander() {
         tipo = "FUEGO";
         hp = 39;
@@ -38,7 +38,7 @@ public class Charmander extends Pokemon {
         this(); //invocando al constructor default
         this.nombre = nombre;
     }
-
+    
     public void atacar(Pokemon oponente, Charmander.Movimientos movimientoAUtilizar) {
 
         //Instanciar el movimiento solicitado
@@ -54,7 +54,13 @@ public class Charmander extends Pokemon {
         }
 
         //Aplicar el movimiento
-        instanciaMovimiento.utilizar(this, oponente);
-
+        atacar(oponente, instanciaMovimiento);
+        
     }
+    
+    @Override
+    protected void atacar(Pokemon oponente, Movimiento move) {
+        move.utilizar(this, oponente);
+    }
+    
 }

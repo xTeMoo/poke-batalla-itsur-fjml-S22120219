@@ -5,63 +5,39 @@
 package mx.edu.itsur.pokebatalla.model.pokemons;
 
 import mx.edu.itsur.pokebatalla.model.moves.AtaqueRapido;
+import mx.edu.itsur.pokebatalla.model.moves.Impactrueno;
 import mx.edu.itsur.pokebatalla.model.moves.Latigo;
 import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
+import mx.edu.itsur.pokebatalla.model.moves.PsycoRayo;
 
 /**
  *
  * @author FJML1983
  */
-public class Bullbasaur extends Pokemon {
-    
+public class Psyduck extends Pokemon {
+
     public enum Movimientos {
-        ATAQUE_RAPIDO,
-        LATIGO
-    }
-    
-    public Bullbasaur() {
-        tipo = "PLANTA/VENENO";
-        hp = 45;
-        ataque = 49;
-        defensa = 49;
-        nivel = 1;
-        precision = 4;
+        PSICORAYO
     }
 
-    //Constructor alterno 1
-    public Bullbasaur(String nombre) {
-        this(); //invocando al constructor default
-        this.nombre = nombre;
-        
-    }
-    
-    public void atacar(Pokemon oponente, Bullbasaur.Movimientos movimientoAUtilizar) {
+    public void atacar(Pokemon oponente, Psyduck.Movimientos movimientoAUtilizar) {
 
         //Instanciar el movimiento solicitado
         Movimiento instanciaMovimiento;
         switch (movimientoAUtilizar) {
-            case ATAQUE_RAPIDO:
-                instanciaMovimiento = new AtaqueRapido();
-                break;
-            case LATIGO:
-                instanciaMovimiento = new Latigo();
+            case PSICORAYO:
+                instanciaMovimiento = new PsycoRayo();
                 break;
 
-            //Otros movimientos aquí...
+            //Otros movimientos aquí...                
             default:
                 throw new AssertionError();
-            
         }
-        
-        //instanciaMovimiento.utilizar(this, oponente);
         atacar(oponente, instanciaMovimiento);
     }
-    
+
     @Override
     protected void atacar(Pokemon oponente, Movimiento move) {
-
-        //Aplicar el movimiento
         move.utilizar(this, oponente);
     }
-    
 }
