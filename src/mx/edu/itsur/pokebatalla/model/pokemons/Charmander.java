@@ -5,6 +5,7 @@
 package mx.edu.itsur.pokebatalla.model.pokemons;
 
 import mx.edu.itsur.pokebatalla.model.moves.AtaqueRapido;
+import mx.edu.itsur.pokebatalla.model.moves.Grunido;
 import mx.edu.itsur.pokebatalla.model.moves.Impactrueno;
 import mx.edu.itsur.pokebatalla.model.moves.Latigo;
 import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
@@ -20,7 +21,7 @@ public class Charmander extends Pokemon {
      */
     public enum Movimientos {
         ATAQUE_RAPIDO,
-
+        GRUNIDO,
         //Otros movimientos...
     }
     
@@ -47,7 +48,9 @@ public class Charmander extends Pokemon {
             case ATAQUE_RAPIDO:
                 instanciaMovimiento = new AtaqueRapido();
                 break;
-
+            case GRUNIDO:
+                instanciaMovimiento = new Grunido();
+                break;
             //Otros movimientos aquí...
             default:
                 throw new AssertionError();
