@@ -21,6 +21,7 @@ public abstract class Pokemon {
     protected int ataque;
     protected int defensa;
     protected double precision;
+    protected int xp; //https://www.wikidex.net/wiki/Experiencia_base
     
     Pokemon() {
     }
