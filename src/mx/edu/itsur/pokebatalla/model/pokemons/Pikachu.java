@@ -4,7 +4,6 @@
  */
 package mx.edu.itsur.pokebatalla.model.pokemons;
 
-import java.util.ArrayList;
 import mx.edu.itsur.pokebatalla.model.moves.AtaqueRapido;
 import mx.edu.itsur.pokebatalla.model.moves.Impactrueno;
 import mx.edu.itsur.pokebatalla.model.moves.Latigo;
@@ -43,16 +42,26 @@ public class Pikachu extends Pokemon {
         this.nombre = nombre;
     }
 
-    
     @Override
-    protected void atacar(Pokemon oponente, Movimiento move) {
-        move.utilizar(this, oponente);
+    public Enum[] getMovimientos() {
+        return Pikachu.Movimientos.values();
     }
-    
-    public void atacar(Pokemon oponente, Pikachu.Movimientos movimientoAUtilizar) {
+
+    @Override
+    public void atacar(Pokemon oponente, int ordinalMovimiento) {
+
+        //Si el pokemon está agotado no podrá realizar nada.
+        if (this.hp <= 0) {
+            System.out.println("Pikachu esta agotado y no puede realizar mas movimientos.");
+            return;
+        }
+
+        //Obtener el movimiento de acuerdo a su numero ordinal
+        Pikachu.Movimientos movimientoAUtilizar
+                = Pikachu.Movimientos.values()[ordinalMovimiento];
 
         //Instanciar el movimiento solicitado
-        Movimiento instanciaMovimiento;        
+        Movimiento instanciaMovimiento;
         switch (movimientoAUtilizar) {
             case IMPACTRUENO:
                 instanciaMovimiento = new Impactrueno();
@@ -70,7 +79,7 @@ public class Pikachu extends Pokemon {
         }
 
         //Aplicar el movimiento.
-        atacar(oponente, instanciaMovimiento);
+        instanciaMovimiento.utilizar(this, oponente);
     }
 
 }

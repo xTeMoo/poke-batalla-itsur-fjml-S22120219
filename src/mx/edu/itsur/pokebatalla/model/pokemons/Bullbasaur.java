@@ -36,8 +36,24 @@ public class Bullbasaur extends Pokemon {
         
     }
     
-    public void atacar(Pokemon oponente, Bullbasaur.Movimientos movimientoAUtilizar) {
+    @Override
+    public Enum[] getMovimientos() {
+        return Bullbasaur.Movimientos.values();
+    }    
+    
+    @Override
+    public void atacar(Pokemon oponente, int ordinalMovimiento) {
 
+        //Si el pokemon está agotado no podrá realizar nada.
+        if (this.hp <= 0) {
+            System.out.println("Bullbasaur esta agotado y no puede realizar mas movimientos.");
+            return;
+        }        
+        
+        //Obtener el movimiento de acuerdo a su numero ordinal
+	Bullbasaur.Movimientos movimientoAUtilizar 
+                = Bullbasaur.Movimientos.values()[ordinalMovimiento];        
+        
         //Instanciar el movimiento solicitado
         Movimiento instanciaMovimiento;
         switch (movimientoAUtilizar) {
@@ -55,14 +71,7 @@ public class Bullbasaur extends Pokemon {
         }
         
         //instanciaMovimiento.utilizar(this, oponente);
-        atacar(oponente, instanciaMovimiento);
-    }
-    
-    @Override
-    protected void atacar(Pokemon oponente, Movimiento move) {
-
-        //Aplicar el movimiento
-        move.utilizar(this, oponente);
-    }
+        instanciaMovimiento.utilizar(this, oponente);
+    }    
     
 }

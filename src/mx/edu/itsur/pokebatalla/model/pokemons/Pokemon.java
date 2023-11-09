@@ -4,9 +4,6 @@
  */
 package mx.edu.itsur.pokebatalla.model.pokemons;
 
-import java.util.List;
-import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
-
 /**
  *
  * @author FJML1983
@@ -47,8 +44,11 @@ public abstract class Pokemon {
         this.hp = this.hp - danio;
     }        
     
-    protected abstract void atacar(Pokemon oponente, Movimiento move );
+    protected abstract void atacar(Pokemon oponente, int ordinalMovimiento );
 
+    //Devolver la lista de movimientos disponibles del pokemon.
+    public abstract Enum[] getMovimientos();
+    
     @Override
     public String toString() {
 

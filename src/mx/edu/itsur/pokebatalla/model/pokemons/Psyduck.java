@@ -4,9 +4,6 @@
  */
 package mx.edu.itsur.pokebatalla.model.pokemons;
 
-import mx.edu.itsur.pokebatalla.model.moves.AtaqueRapido;
-import mx.edu.itsur.pokebatalla.model.moves.Impactrueno;
-import mx.edu.itsur.pokebatalla.model.moves.Latigo;
 import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
 import mx.edu.itsur.pokebatalla.model.moves.PsycoRayo;
 
@@ -20,7 +17,23 @@ public class Psyduck extends Pokemon {
         PSICORAYO
     }
 
-    public void atacar(Pokemon oponente, Psyduck.Movimientos movimientoAUtilizar) {
+    @Override
+    public Enum[] getMovimientos() {
+        return Psyduck.Movimientos.values();
+    }    
+    
+    @Override
+    public void atacar(Pokemon oponente, int ordinalMovimiento) {
+        
+        //Si el pokemon está agotado no podrá realizar nada.
+        if (this.hp <= 0) {
+            System.out.println("Psyduck esta agotado y no puede realizar mas movimientos.");
+            return;
+        }        
+
+        //Obtener el movimiento de acuerdo a su numero ordinal
+        Psyduck.Movimientos movimientoAUtilizar 
+                = Psyduck.Movimientos.values()[ordinalMovimiento];
 
         //Instanciar el movimiento solicitado
         Movimiento instanciaMovimiento;
@@ -33,11 +46,9 @@ public class Psyduck extends Pokemon {
             default:
                 throw new AssertionError();
         }
-        atacar(oponente, instanciaMovimiento);
+
+        //Aplicar movimiento
+        instanciaMovimiento.utilizar(this, oponente);
     }
 
-    @Override
-    protected void atacar(Pokemon oponente, Movimiento move) {
-        move.utilizar(this, oponente);
-    }
 }

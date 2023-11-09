@@ -6,8 +6,6 @@ package mx.edu.itsur.pokebatalla.model.pokemons;
 
 import mx.edu.itsur.pokebatalla.model.moves.AtaqueRapido;
 import mx.edu.itsur.pokebatalla.model.moves.Grunido;
-import mx.edu.itsur.pokebatalla.model.moves.Impactrueno;
-import mx.edu.itsur.pokebatalla.model.moves.Latigo;
 import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
 
 /**
@@ -40,8 +38,24 @@ public class Charmander extends Pokemon {
         this.nombre = nombre;
     }
     
-    public void atacar(Pokemon oponente, Charmander.Movimientos movimientoAUtilizar) {
+    @Override
+    public Enum[] getMovimientos() {
+        return Charmander.Movimientos.values();
+    }    
+    
+    @Override
+    public void atacar(Pokemon oponente, int ordinalMovimiento) {
 
+        //Si el pokemon está agotado no podrá realizar nada.
+        if (this.hp <= 0) {
+            System.out.println("Charmander esta agotado y no puede realizar mas movimientos.");
+            return;
+        }        
+        
+        //Obtener el movimiento de acuerdo a su numero ordinal
+        Charmander.Movimientos movimientoAUtilizar = 
+                Charmander.Movimientos.values()[ordinalMovimiento];
+        
         //Instanciar el movimiento solicitado
         Movimiento instanciaMovimiento;
         switch (movimientoAUtilizar) {
@@ -57,13 +71,8 @@ public class Charmander extends Pokemon {
         }
 
         //Aplicar el movimiento
-        atacar(oponente, instanciaMovimiento);
+        instanciaMovimiento.utilizar(this, oponente);
         
-    }
-    
-    @Override
-    protected void atacar(Pokemon oponente, Movimiento move) {
-        move.utilizar(this, oponente);
     }
     
 }
