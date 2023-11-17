@@ -36,10 +36,30 @@ public class Batalla {
 
         //La primera vez ambos entrenadores se elegiran Pokemons
         //1. El primer entrenador selecciona su pokemon.
-        seleccionarPokemon(entrenador1);
+        do {
+            try {
+                seleccionarPokemon(entrenador1);
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println("Solamente cuentas con "
+                        + entrenador1.getPokemonsCapturados().size()
+                        + " Elige alguno de ellos!!! ");
+                entrenador1.setPokemonActual(null);
+            }
+        } while (entrenador1.getPokemonActual() == null);
 
         //2. El segundo entrenador selecciona su pokemon.
-        seleccionarPokemon(entrenador2);
+        do {
+            try {
+                seleccionarPokemon(entrenador2);
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println("Solamente cuentas con "
+                        + entrenador2.getPokemonsCapturados().size()
+                        + " Elige alguno de ellos!!! ");
+                entrenador2.setPokemonActual(null);
+            }
+        } while (entrenador2.getPokemonActual() == null);
+
+       
 
         while (!batallaFinalizada) {
 
@@ -110,28 +130,29 @@ public class Batalla {
     }
 
     private void seleccionarPokemon(Entrenador ent) {
+        char auxLectura = '0';
+        //El entrenador selecciona el pokemon a utilizar.            
+        System.out.println("Cual de los siguientes Pokemon desea utilizar " + ent.nombre + "?");
+        int auxCount = 1;
+        for (Pokemon p : ent.getPokemonsCapturados()) {
+            System.out.println(auxCount + " -> " + p);
+            auxCount++;
+        }
         try {
-            //El entrenador selecciona el pokemon a utilizar.            
-            System.out.println("Cual de los siguientes Pokemon desea utilizar " + ent.nombre + "?");
-            int auxCount = 1;
-            for (Pokemon p : ent.getPokemonsCapturados()) {
-                System.out.println(auxCount + " -> " + p);
-                auxCount++;
-            }
-
-            char auxLectura = (char) System.in.read(); //Leer opción seleccionada
+            auxLectura = (char) System.in.read(); //Leer opción seleccionada
             System.in.read(new byte[System.in.available()]); //Limpiar bufer
 
-            //Obtener el pokemon seleccionado de la lista.
-            Pokemon pokemonSeleccionado = ent.getPokemonsCapturados()
-                    .get(Character.getNumericValue(auxLectura) - 1);
-
-            ent.setPokemonActual(pokemonSeleccionado);
-            System.out.println(ent.nombre + " ha seleccionado a: " + ent.getPokemonActual());
-            System.out.println("-----------------------------------------");
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        //Obtener el pokemon seleccionado de la lista.
+        Pokemon pokemonSeleccionado = ent.getPokemonsCapturados()
+                .get(Character.getNumericValue(auxLectura) - 1);
+
+        ent.setPokemonActual(pokemonSeleccionado);
+        System.out.println(ent.nombre + " ha seleccionado a: " + ent.getPokemonActual());
+        System.out.println("-----------------------------------------");
+
     }
 
 }
